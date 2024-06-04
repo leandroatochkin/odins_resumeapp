@@ -179,4 +179,36 @@ flex-direction: column;
 
 .experience{
   color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 5%;
+}
+
+.cv-line{
+  margin-bottom: 1%;
+}
+
+.cv-item{
+  margin-left: 0;
+  display: flex;
+}
+
+.key{
+  margin-left: 0;
+  font-weight: bolder;
+}
+
+.separator{
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+
+.education{
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 5%;
 }
