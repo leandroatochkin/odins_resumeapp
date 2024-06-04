@@ -19,9 +19,9 @@ const CvDisplay = ({ educationData, workExperienceData, personalData }) => {
         <p style={{ fontWeight: 'bolder' }}>Work Experience</p>
         {workExperienceData.map((item, index) => {
           return (
-            <div key={index} className='cv-line'>
+            <div key={index} className='cv-line' >
               {Object.entries(item).map(([key, value]) => {
-                return <div key={key} className='cv-item'><span className='key'>{key}:</span> {value}</div>;
+                return <div key={key} className='cv-item' ><span className='key'>{key}:</span> <span style={{height: 'auto', maxWidth: '80%', wordBreak: 'break-word'}}>{value}</span></div>;
               })}
             </div>
           );
@@ -34,7 +34,7 @@ const CvDisplay = ({ educationData, workExperienceData, personalData }) => {
           return (
             <div key={index} className='cv-line'>
               {Object.entries(item).map(([key, value]) => {
-                return <div key={key} className='cv-item'><span className='key'>{key}:</span> {value}</div>;
+                return <div key={key} className='cv-item'><span className='key'>{key}:</span> <span style={{height: 'auto', maxWidth: '80%', wordBreak: 'break-word'}}>{value}</span></div>;
               })}
             </div>
           );

@@ -19,7 +19,7 @@ function App() {
     website: '',
     bio: ''
   });
-  console.log(workExperienceData)
+  
  
   return (
     <>

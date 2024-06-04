@@ -31,7 +31,7 @@ const WorkExperienceInfo = ({ workExperienceData, setWorkExperienceData }) => {
 
   const handleAddWorkExperience = (e) => {
     e.preventDefault();
-    const status = formData.notFinished ? 'not finished' : 'finished';
+    const status = formData.notFinished ? 'currently working' : 'finished';
     if (formData.company !== '' && formData.position !== '' && formData.description !== '') {
       if (editingIndex !== null) {
         // Edit existing entry
@@ -84,7 +84,7 @@ const WorkExperienceInfo = ({ workExperienceData, setWorkExperienceData }) => {
       start: itemToEdit.start,
       end: itemToEdit.end,
       description: itemToEdit.description,
-      notFinished: itemToEdit.status === 'not finished',
+      notFinished: itemToEdit.status === 'currently working',
     });
     setEditingIndex(index);
   };
@@ -107,6 +107,7 @@ const WorkExperienceInfo = ({ workExperienceData, setWorkExperienceData }) => {
           name='company'
           value={formData.company}
           onChange={handleInputChange}
+          maxLength={20}
         />
         <label htmlFor='position'>Position</label>
         <input 
@@ -114,6 +115,7 @@ const WorkExperienceInfo = ({ workExperienceData, setWorkExperienceData }) => {
           name='position'
           value={formData.position}
           onChange={handleInputChange}
+          maxLength={20}
         />
         <fieldset className='fieldset'>
           <label htmlFor='start'>Start date:</label>
@@ -130,7 +132,7 @@ const WorkExperienceInfo = ({ workExperienceData, setWorkExperienceData }) => {
             value={formData.end}
             onChange={handleInputChange}
           />
-          <label htmlFor='not-finished'>Unfinished</label>
+          <label htmlFor='not-finished'>Currently working</label>
           <input 
             type='checkbox'
             name='notFinished'
@@ -144,6 +146,7 @@ const WorkExperienceInfo = ({ workExperienceData, setWorkExperienceData }) => {
           name='description'
           value={formData.description}
           onChange={handleInputChange}
+          maxLength={200}
         />
         </fieldset>
         <button className='add-experience-button' onClick={handleAddWorkExperience}>

@@ -102,6 +102,7 @@ const EducationInfo = ({ educationData, setEducationData }) => {
           name='establishment'
           value={formData.establishment}
           onChange={handleInputChange}
+          maxLength={20}
         />
         <label htmlFor='degree'>Degree</label>
         <input 
@@ -109,6 +110,7 @@ const EducationInfo = ({ educationData, setEducationData }) => {
           name='degree'
           value={formData.degree}
           onChange={handleInputChange}
+          maxLength={20}
         />
         <fieldset className='fieldset'>
           <label htmlFor='start'>Start date:</label>

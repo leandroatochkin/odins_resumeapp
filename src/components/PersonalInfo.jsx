@@ -32,6 +32,7 @@ const PersonalInfo = ({ personalData, setPersonalData }) => {
           name="firstName"
           value={personalData.firstName}
           onChange={handleInputChange}
+          maxLength={16}
         />
         <label htmlFor='lastName'>Last Name</label>
         <input
@@ -39,6 +40,7 @@ const PersonalInfo = ({ personalData, setPersonalData }) => {
           name="lastName"
           value={personalData.lastName}
           onChange={handleInputChange}
+          maxLength={16}
         />
         <label htmlFor='address'>Address</label>
         <input
@@ -46,6 +48,7 @@ const PersonalInfo = ({ personalData, setPersonalData }) => {
           name="address"
           value={personalData.address}
           onChange={handleInputChange}
+          maxLength={20}
         />
         <label htmlFor='email'>Email</label>
         <input
@@ -53,6 +56,7 @@ const PersonalInfo = ({ personalData, setPersonalData }) => {
           name="email"
           value={personalData.email}
           onChange={handleInputChange}
+          maxLength={20}
         />
         <label htmlFor='phone'>Phone</label>
         <input
@@ -60,6 +64,7 @@ const PersonalInfo = ({ personalData, setPersonalData }) => {
           name="phone"
           value={personalData.phone}
           onChange={handleInputChange}
+          maxLength={20}
         />
         <label htmlFor='website'>Website</label>
         <input
@@ -67,12 +72,14 @@ const PersonalInfo = ({ personalData, setPersonalData }) => {
           name="website"
           value={personalData.website}
           onChange={handleInputChange}
+          maxLength={20}
         />
         <label htmlFor='bio'>Bio</label>
         <textarea
           name="bio"
           value={personalData.bio}
           onChange={handleInputChange}
+          maxLength={200}
         />
         <Preview data={personalData} />
       </form>

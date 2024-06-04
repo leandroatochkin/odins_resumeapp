@@ -10,7 +10,7 @@ const Preview = ({ data, handleEdit,  handleDelete }) => {
           dataItem && (
             <div key={index} className='preview-line'>
               {Object.entries(dataItem).map(([key, value])=>{
-                return <div key={key} className='preview-item'><span style={{fontWeight: 'bolder'}}>{key}:</span><br/>{value}</div>
+                return <div key={key} className='preview-item'><span style={{fontWeight: 'bolder'}}>{key}:</span><br/><span style={{height: 'auto', maxWidth: '10%', wordBreak: 'break-word'}}>{value}</span></div>
               })}
               <button onClick={(e) => handleEdit(index, e)} className='edit-button'>
                 edit
