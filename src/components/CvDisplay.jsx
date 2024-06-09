@@ -1,10 +1,19 @@
 import React from 'react';
 
 const CvDisplay = ({ educationData, workExperienceData, personalData }) => {
+
+const handlePrint = () => {
+    window.print()
+}
+
+
   return (
     <div className='cv-display'>
       <div className='header'>
+        <div className='top-info-container'>
         <p className='title' style={{ fontWeight: 'bolder' }}>Curriculum Vitae</p>
+        <img className='photo' src={personalData.photo} />
+        </div>
         <h2 className='name'>{personalData.firstName} {personalData.lastName}</h2>
         <p className='bio'>{personalData.bio}</p>
         <p style={{ fontWeight: 'bolder' }}>Contact Info</p>
@@ -41,6 +50,7 @@ const CvDisplay = ({ educationData, workExperienceData, personalData }) => {
         })}
         <div className='separator'></div>
       </div>
+      <button className='print-button' onClick={handlePrint}>PRINT</button>
     </div>
   );
 }

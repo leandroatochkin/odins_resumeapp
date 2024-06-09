@@ -1,158 +1,244 @@
+#root {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0; /* Ensure no gap between columns */
+  
+}
 
+.input-display {
+  grid-column: 1;
+  margin: 0;
+  padding: 0;
+}
 
-  #root {
-    width: 100vw;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-row-gap: 0;
-  }
-  
-  .input-display{
-    grid-column: 1;
-    margin: 0;
-    padding: 0;
-  }
+.cv-display {
+  width: 55%;
+  height: 297mm;
+  background-color: aliceblue;
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  transition: all 0.2s ease-out;
+  position: absolute;
+  right: 0;
+}
 
-  .input-display * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .input-display + .input-display {
-    margin-top: 10px; /* Adjust spacing between .input-display divs */
-  }
+.cv-display:hover {
+  width: 210mm;
+}
 
-  .cv-display{
-    width: 30vw;
-    height: 90vh;
-    background-color: aliceblue;
-    grid-column: 2;
-    grid-row: 1 / span 3;
-  }
-  
-  .section-info {
-    width: 35vw;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    background-color: red;
-    padding: 5%;
-    border-radius: 16px;
-    max-height: 10vh; 
-    overflow: hidden; 
-    transition: max-height 0.3s ease, background-color 0.2s ease-in-out;
-  }
-  
-  .section-info:hover{
-    background-color: darkslategray;
-  }
-  
-  
-  .section-info.expanded {
-    max-height: 80vh;
-    overflow-y: scroll;
-    scrollbar-width: none; 
-  }
-  
-  .component-top-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: auto;
-    width: auto;
-    grid-column: span 2;
-  }
-  
-  .hidden > input,
-  .hidden > label,
-  .hidden > fieldset,
-  .hidden > textarea,
-  .hidden > .add-experience-button,
-  .hidden > .add-establishment-button,
-  .hidden > .preview-container
-  {
-    display: none;
-  }
-  
-  .expand-button{
-    background-color: transparent;
-    border: none;
-    font-weight: bolder;
-    font-size: xx-large;
-  }
-  
-  .form-preview{
-    grid-column: span 2;
-    width: 80%;
-  }
-  
-  .preview-container{
-    grid-column: span 2 !important;
-    display: flex;
-    flex-direction: column; 
-  }
-  
-  .preview-container > h2{
-    display: flex;
-    justify-content: flex-start;
-    
-  }
-  
-  .preview-line {
-      grid-column: span 2;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      max-width: 100% !important;
-      height: auto;
-      overflow-wrap: break-word; /* Ensures text wraps correctly */
-      word-wrap: break-word;     /* Breaks long words */
-  }
-  
-  
-  
-  
-  .edit-button{
+.section-info {
+  width: 35vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background-color: red;
+  padding: 5%;
+  border-radius: 16px;
+  max-height: 10vh;
+  overflow: hidden;
+  transition: max-height 0.3s ease, background-color 0.2s ease-in-out,;
+  margin-bottom: 5px; /* Reduced space between sections */
+  transform-origin: top;
+}
+
+.section-info:hover {
+  background-color: darkslategray;
+}
+
+.section-info.expanded {
+  max-height: 80vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  transform: scaleY(1); /* Ensures it expands downwards */
+}
+
+.component-top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+  width: auto;
+  grid-column: span 2;
+  margin-bottom: 0; /* Remove margin if any */
+}
+
+.hidden > input,
+.hidden > label,
+.hidden > fieldset,
+.hidden > textarea,
+.hidden > .add-experience-button,
+.hidden > .add-establishment-button,
+.hidden > .preview-container {
+  display: none;
+}
+
+.expand-button {
+  background-color: transparent;
+  border: none;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+.form-preview {
+  grid-column: span 2;
+  width: 80%;
+}
+
+.preview-container {
+  grid-column: span 2 !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.preview-container > h2 {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.preview-line {
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100% !important;
+  height: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.edit-button {
   background-color: transparent;
   transition: background-color 0.2s ease-in;
   height: auto;
   width: auto;
   padding: 2px;
-  }
-  
-  .edit-button:hover{
+}
+
+.edit-button:hover {
   background-color: red;
-  }
-  
-  .fieldset{
+}
+
+.fieldset {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+}
+
+.fieldset > textarea {
+  height: 150px;
+}
+
+.add-experience-button {
+  grid-column: span 2;
+}
+
+/*--------------------CV-------------------------*/
+
+.header {
+  margin-top: 0;
+  height: auto;
+  width: 100%;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-info-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  margin-left: 5%;
+  padding: 0;
+}
+
+.photo{
+  height: 40mm;
+  width: 40mm;
+  margin-right: 2%;
+  margin-top: 2%;
+  border-radius: 50%;
+}
+
+.name {
+  margin-top: 0;
+}
+
+.bio {
+  margin-top: 0;
+  max-width: 90%;
+  height: auto;
+  word-wrap: break-word;
+}
+
+.contact-info {
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+  width: 100%;
+  font-size: small;
+  font-weight: bolder;
+}
+
+.experience {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 5%;
+}
+
+.cv-line {
+  margin-bottom: 1%;
+}
+
+.cv-item {
+  margin-left: 0;
+  display: flex;
+}
+
+.key {
+  margin-left: 0;
+  font-weight: bolder;
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+
+.education {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 5%;
+}
+
+@media print {
+  .input-display, .print-button{
+    display: none;
   }
-  
-  .fieldset>textarea{
-    height: 150px;
-  }
-  
-  .add-experience-button{
-    grid-column: span 2;
-  }
-  
-  
-  /*--------------------CV-------------------------*/
-  
-  .cv-display{
+
+  .cv-display {
+    margin-top: -70%;
     width: 210mm;
     height: 297mm;
     background-color: aliceblue;
-    grid-column: 2;
-    grid-row: 1 / span 3;
+    padding: 1%;
   }
-  
-  
-  .header{
+
+  .header {
     margin-top: 0;
     height: auto;
     width: 100%;
@@ -162,25 +248,25 @@
     align-items: center;
   }
   
-  .title{
+  .title {
     width: 100%;
     display: flex;
     margin-left: 5%;
     padding: 0;
   }
   
-  .name{
+  .name {
     margin-top: 0;
   }
   
-  .bio{
+  .bio {
     margin-top: 0;
     max-width: 90%;
     height: auto;
     word-wrap: break-word;
   }
   
-  .contact-info{
+  .contact-info {
     margin-top: 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -190,7 +276,7 @@
     font-weight: bolder;
   }
   
-  .experience{
+  .experience {
     color: black;
     display: flex;
     flex-direction: column;
@@ -198,30 +284,32 @@
     margin-left: 5%;
   }
   
-  .cv-line{
+  .cv-line {
     margin-bottom: 1%;
   }
   
-  .cv-item{
+  .cv-item {
     margin-left: 0;
     display: flex;
   }
   
-  .key{
+  .key {
     margin-left: 0;
     font-weight: bolder;
   }
   
-  .separator{
+  .separator {
     width: 100%;
     height: 1px;
     background-color: black;
   }
   
-  .education{
+  .education {
     color: black;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-left: 5%;
   }
+  
+}

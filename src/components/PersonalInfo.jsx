@@ -19,6 +19,16 @@ const PersonalInfo = ({ personalData, setPersonalData }) => {
     }));
   };
 
+  const handleAddPhoto = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setPersonalData(prevData => ({
+        ...prevData,
+        photo: URL.createObjectURL(file) // Create a URL for the selected photo
+      }));
+    }
+  };
+
   return (
     <div className='input-display'>
       <form className={`section-info ${expanded ? 'expanded' : 'hidden'}`}>
@@ -81,6 +91,14 @@ const PersonalInfo = ({ personalData, setPersonalData }) => {
           onChange={handleInputChange}
           maxLength={200}
         />
+        <label htmlFor='photo'>Picture:</label>
+        <input
+        type="file"
+        accept="image/*"
+        name='photo'
+        id="fileInput"
+        onChange={handleAddPhoto}
+      />
         <Preview data={personalData} />
       </form>
     </div>
